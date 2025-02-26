@@ -1,1 +1,20 @@
-
+<table class="table table-sm">
+    <thead class="table-active">
+        <tr>
+            <th>Id</th>
+            <th>Nombre del Empleado</th>
+            <th>Numero</th>
+            <th>Fecha Ingreso</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in empleados %}
+        <tr>
+            <td>{{ x.idEmpleadoo }}</td>
+            <td>{{ x.nombreEmpleado }}</td>
+            <td>{{ x.numero }}</td>
+            <td>{{ x.fechaIngreso }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
