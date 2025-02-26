@@ -93,7 +93,7 @@ def buscarProductos():
            numero,
            fechaIngreso
 
-    FROM empleado
+    FROM empleados
 
     WHERE nombreEmpleado LIKE %s
     OR    numero          LIKE %s
