@@ -77,7 +77,7 @@ def empleados():
 
     return render_template("reportes.html", empleados=registros)
 
-@app.route("/empleados/buscar", methods=["GET"])
+@app.route("/producto/buscar", methods=["GET"])
 def buscarProductos():
     if not con.is_connected():
         con.reconnect()
