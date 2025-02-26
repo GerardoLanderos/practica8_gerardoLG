@@ -18,10 +18,10 @@ import pytz
 from flask_cors import CORS, cross_origin
 
 con = mysql.connector.connect(
-    host="localhost",
-    database="reportes",
-    user="root",
-    password=""
+    host="185.232.14.52",
+    database="u760464709_16005339_bd",
+    user="u760464709_16005339_usr",
+    password="/iJRzrJBz+P1"
 )
 
 app = Flask(__name__)
@@ -207,3 +207,4 @@ def eliminarProducto():
     con.close()
 
     return make_response(jsonify({}))
+    
