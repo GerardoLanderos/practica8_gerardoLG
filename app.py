@@ -45,7 +45,7 @@ def app2():
 
     return "<h5>Hola, soy la view app</h5>"
 
-@app.route("/reportes")
+@app.route("/empleados")
 def empleados():
     if not con.is_connected():
         con.reconnect()
@@ -75,9 +75,9 @@ def empleados():
         registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
     """
 
-    return render_template("reportes.html", empleados=registros)
+    return render_template("empleados.html", empleados=registros)
 
-@app.route("/reportes/buscar", methods=["GET"])
+@app.route("/empleados/buscar", methods=["GET"])
 def buscarProductos():
     if not con.is_connected():
         con.reconnect()
