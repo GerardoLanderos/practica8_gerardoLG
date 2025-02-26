@@ -77,7 +77,7 @@ def empleados():
 
     return render_template("reportes.html", empleados=registros)
 
-@app.route("/producto/buscar", methods=["GET"])
+@app.route("/reportes/buscar", methods=["GET"])
 def buscarProductos():
     if not con.is_connected():
         con.reconnect()
@@ -88,18 +88,18 @@ def buscarProductos():
     
     cursor = con.cursor(dictionary=True)
     sql    = """
-    SELECT Id_Producto,
-           Nombre_Producto,
-           Precio,
-           Existencias
+    SELECT idEmpleado,
+           nombreEmpleado,
+           numero,
+           fechaIngreso
 
-    FROM productos
+    FROM empleado
 
-    WHERE Nombre_Producto LIKE %s
-    OR    Precio          LIKE %s
-    OR    Existencias     LIKE %s
+    WHERE nombreEmpleado LIKE %s
+    OR    numero          LIKE %s
+    OR    fechaIngreso     LIKE %s
 
-    ORDER BY Id_Producto DESC
+    ORDER BY idEmpleado DESC
 
     LIMIT 10 OFFSET 0
     """
