@@ -45,7 +45,7 @@ def app2():
 
     return "<h5>Hola, soy la view app</h5>"
 
-@app.route("/empleados")
+@app.route("/reportes")
 def empleados():
     if not con.is_connected():
         con.reconnect()
