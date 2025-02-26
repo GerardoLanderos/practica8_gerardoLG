@@ -45,7 +45,7 @@ def app2():
 
     return "<h5>Hola, soy la view app</h5>";
 
-@app.route("/reportes")
+@app.route("/empleados")
 def empleados():
     if not con.is_connected():
         con.reconnect()
@@ -54,7 +54,8 @@ def empleados():
     sql    = """
     SELECT idEmpleado,
            nombreEmpleado,
-           numero
+           numero,
+           fechaIngreso
 
     FROM empleados
 
@@ -67,16 +68,16 @@ def empleados():
     # Si manejas fechas y horas
     """
     for registro in registros:
-        fechaIngreso = registro["fechaIngreso"]
+        fecha_hora = registro["Fecha_Hora"]
 
-        registro["fechaIngreso"] = fecha_hora.strftime("%Y-%m-%d %H:%M:%S")
-        registro["fecha"]      = fecha_hora.strftime("%d/%m/%Y")
-        registro["Ingreso"]       = fecha_hora.strftime("%H:%M:%S")
+        registro["Fecha_Hora"] = fecha_hora.strftime("%Y-%m-%d %H:%M:%S")
+        registro["Fecha"]      = fecha_hora.strftime("%d/%m/%Y")
+        registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
     """
 
     return render_template("reportes.html", empleados=registros)
 
-@app.route("/productos/buscar", methods=["GET"])
+@app.route("/empleados/buscar", methods=["GET"])
 def buscarProductos():
     if not con.is_connected():
         con.reconnect()
